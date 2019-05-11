@@ -39,7 +39,7 @@ class IjkPlayer extends StatefulWidget {
   final IJKTextureBuilder textureBuilder;
 
   final StatusWidgetBuilder statusWidgetBuilder;
-
+  final Color color;
   /// Main Classes of Library
   const IjkPlayer({
     Key key,
@@ -47,6 +47,7 @@ class IjkPlayer extends StatefulWidget {
     this.controllerWidgetBuilder = defaultBuildIjkControllerWidget,
     this.textureBuilder = buildDefaultIjkPlayer,
     this.statusWidgetBuilder = IjkStatusWidget.buildStatusWidget,
+    this.color = Colors.black,
   }) : super(key: key);
 
   @override
@@ -105,7 +106,7 @@ class IjkPlayerState extends State<IjkPlayer> {
 //    return stack;
     return Material(
       child: stack,
-      color: Colors.black,
+      color: widget.color,
     );
   }
 
@@ -121,12 +122,12 @@ class IjkPlayerState extends State<IjkPlayer> {
 
     if (id == null) {
       return Container(
-        color: Colors.black,
+        color: widget.color,
       );
     }
 
     return Container(
-      color: Colors.black,
+      color: widget.color,
       child: _IjkPlayerWrapper(
         globalKey: _wrapperKey,
         controller: controller,
